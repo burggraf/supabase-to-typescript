@@ -18,7 +18,7 @@ export interface Tables {
 		displayname?: string; /* format: text */
 		bio?: string; /* format: text */
 		email?: string; /* format: text */
-    jsonfield: any; /* format: jsonb */
+    		jsonfield: any; /* format: jsonb */
 	}
 }
 ```
