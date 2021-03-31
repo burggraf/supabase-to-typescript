@@ -27,12 +27,19 @@ This is just a rough first pass, and it's pretty simple code that you can modify
 
 # prerequisites:
 1. nodejs installed on the command line (node --version better work for you!)
-2. you'll need to know your Supabase URL and Supabase key (the anon or public key)
-3. you'll need to make one of the smallest decisions of your life:  what do you want to call your output file
+2. I'm using node v14.16.0, so your mileage may vary if you're on an inferior node version.
+3. you'll need to know your Supabase URL and Supabase key (the anon or public key)
+4. you'll need to make one of the smallest decisions of your life:  what do you want to call your output file
 
 # syntax:
 ```
 node supabase-to-typescript.js <outputFilename> <Supabase-url> <Supabase-public-api-key>
+```
+OR set environment variables for SUPABASE_URL and SUPABASE_KEY:
+```
+export SUPABASE_URL=xxxxxxxxxxxxxxxxxxxx.supabase.co
+export SUPABASE_KEY=yyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyy
+node supabase-to-typescript.js models/Tables.ts
 ```
 # example:
 ```

@@ -1,19 +1,24 @@
 const fs = require("fs");
 const https = require("https");
 const args = process.argv.slice(2);
-let outputFile = '';
-let supaUrl = '';
-let supaKey = '';
-if (args?.length < 3) {
-    console.log('syntax: node supabase-to-typescript.js <outputFilename> <Supabase-url> <Supabase-public-api-key>');
+let outputFile = args[0];
+let supaUrl = args[1] || process.env.SUPABASE_URL;
+let supaKey = args[2] || process.env.SUPABASE_KEY;
+// process.env.NODE_ENV
+if (!outputFile || !supaUrl || !supaKey) {
+    console.log('supabase-to-typescript syntax:');
+    console.log();
+    console.log('method 1: everything on the command line:');
+    console.log('node supabase-to-typescript.js <outputFilename> <Supabase-url> <Supabase-public-api-key>');
+    console.log();
+    console.log('method 2: environment variables are set (SUPERBASE_URL and SUPABASE_KEY):');
+    console.log('node supabase-to-typescript.js <outputFilename>');
+    console.log();
     process.exit(0);
 } else {
-    outputFile =  args[0];
-    supaUrl = args[1];
-    if (supaUrl?.length < 8 || supaUrl.substr(0,8) !== 'https://') {
+    if (supaUrl?.length < 8 || supaUrl?.substr(0,8) !== 'https://') {
         supaUrl = 'https://' + supaUrl;
     }
-    supaKey = args[2];
 }
 
 const url = `${supaUrl}/rest/v1/?apikey=${supaKey}`;
