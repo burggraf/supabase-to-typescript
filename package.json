@@ -1,0 +1,11 @@
+{
+  "name": "supabase-to-typescript",
+  "version": "1.0.0",
+  "description": "Automatically generate typescript models for tables in your Supabase Postgresql database",
+  "main": "supabase-to-typescript.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Mark Burggraf",
+  "license": "ISC"
+}
